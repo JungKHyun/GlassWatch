@@ -1,0 +1,39 @@
+:root { color-scheme: dark; font-family: "Segoe UI", sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; width: 96px; min-height: 280px; overflow: hidden; background: transparent; user-select: none; }
+.watch { width: 96px; min-height: 280px; padding: 8px 7px 7px; border: 1px solid rgba(180,225,255,.35); border-radius: 16px; background: rgba(12,22,35,.9); color: #eaf6ff; box-shadow: 0 10px 30px rgba(0,0,0,.35), inset 0 1px rgba(255,255,255,.08); -webkit-app-region: drag; transform:scale(var(--ui-scale, 1)); transform-origin:top left; }
+button, input { -webkit-app-region: no-drag; }
+.topbar { position:relative; display:flex; justify-content:center; align-items:center; height:18px; }
+.brand { font-size:10px; letter-spacing:.5px; color:#9fe0ff; font-weight:800; text-align:center; }
+.icon-btn { border:0; padding:0; width:13px; height:13px; line-height:11px; color:#a8c1d5; background:transparent; font-size:15px; cursor:pointer; }
+.topbar .icon-btn { position:absolute; right:0; top:2px; }
+.icon-btn:hover { color:#fff; }
+.bar-chart { position:relative; width:52px; height:90px; margin:8px auto 4px; display:flex; justify-content:center; -webkit-app-region:no-drag; cursor:pointer; }
+.bar-track { position:absolute; top:0; bottom:0; width:22px; border:1px solid rgba(177,226,255,.8); border-radius:7px; background:rgba(139,207,240,.15); overflow:hidden; box-shadow:inset 0 0 8px rgba(74,180,230,.16); }
+.bar-fill { position:absolute; left:0; bottom:0; width:100%; height:100%; border-radius:5px; background:linear-gradient(180deg,#9fe0ff 0%,#59b9e8 60%,#2e86c2 100%); box-shadow:0 0 10px rgba(83,194,255,.8); transition:height .12s linear; }
+.bar-fill.active { animation: barPulse 1.2s ease-in-out infinite alternate; }
+.bar-marker { position:absolute; left:-4px; right:-4px; top:0; height:2px; background:#d6f3ff; box-shadow:0 0 7px #8ddcff; }
+.bar-label { position:absolute; right:0; color:#7ea6bd; font-size:6px; line-height:8px; }
+.top-label { top:-1px; } .bottom-label { bottom:-1px; }
+.time { text-align:center; font-variant-numeric:tabular-nums; font-size:15px; line-height:18px; letter-spacing:.4px; font-weight:700; }
+.state { color:#8fb4cf; text-align:center; font-size:8px; margin:1px 0 5px; }
+.actions { display:flex; gap:3px; }
+.actions button { flex:1; border:0; border-radius:6px; height:18px; font-size:8px; cursor:pointer; font-weight:700; }
+.primary { color:#10202c; background:#9fe0ff; } .primary:hover { background:#c7efff; } .secondary { color:#b7d1e1; background:rgba(130,169,196,.18); }
+.presets { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; margin-top:5px; }
+.preset { border:1px solid transparent; background:rgba(145,190,220,.09); color:#9eb9ca; border-radius:5px; height:16px; font-size:7px; cursor:pointer; }
+.preset:hover, .preset.active { color:#effaff; border-color:rgba(159,224,255,.55); background:rgba(159,224,255,.18); }
+.custom-time { display:flex; gap:3px; margin-top:5px; }
+.custom-time input { min-width:0; flex:1; height:18px; border:1px solid rgba(159,224,255,.3); border-radius:6px; padding:0 4px; color:#eaf6ff; background:rgba(145,190,220,.1); font-size:8px; }
+.custom-time input::placeholder { color:#8ba6b7; }
+.custom-time button { width:27px; height:18px; border:0; border-radius:6px; font-size:8px; cursor:pointer; }
+.control { display:flex; align-items:center; gap:3px; margin-top:8px; color:#96b2c5; font-size:7px; }
+.control input { width:42px; height:9px; accent-color:#9fe0ff; cursor:pointer; } output { width:21px; text-align:right; font-size:7px; }
+.hint { text-align:center; margin-top:5px; color:rgba(156,188,207,.58); font-size:6px; }
+@keyframes barPulse { from { filter:brightness(.95); } to { filter:brightness(1.18); } }
+.bar-chart.blue .bar-fill { background:linear-gradient(180deg,#9fe0ff 0%,#59b9e8 60%,#2e86c2 100%); }
+.bar-chart.red .bar-fill { background:linear-gradient(180deg,#ffb0ad 0%,#ef6969 60%,#ba303d 100%); box-shadow:0 0 10px rgba(255,84,84,.85); }
+.bar-chart.yellow .bar-fill { background:linear-gradient(180deg,#fff0a3 0%,#f4c94c 60%,#c58b16 100%); box-shadow:0 0 10px rgba(255,210,64,.85); }
+.flash-on { background:rgba(255,255,255,.92) !important; box-shadow:0 0 28px rgba(255,255,255,.95), 0 0 8px rgba(255,255,255,.9) !important; }
+.flash-on .bar-track { border-color:#fff; box-shadow:0 0 20px #fff; }
+@media (prefers-reduced-motion:reduce) { .bar-fill { animation:none; } }
