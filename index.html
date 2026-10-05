@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="styles.css"><title>GlassWatch</title></head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="styles.css"><title>Pomodoro_cld</title></head>
 <body>
   <main class="watch" aria-label="집중해 타이머">
-    <div class="topbar"><span id="brand" class="brand">집중해!</span><button id="closeBtn" class="icon-btn" aria-label="닫기">×</button></div>
+    <div class="topbar"><button id="beepBtn" class="icon-btn beep-btn" aria-label="종료 알림음" aria-pressed="true" title="종료 알림음 (beep 3회)">♪</button><span id="brand" class="brand">집중해!</span><button id="closeBtn" class="icon-btn" aria-label="닫기">×</button></div>
     <div id="barChart" class="bar-chart" aria-label="Time remaining bar chart; click to change color" title="Click to change color">
       <span class="bar-label top-label">100</span>
       <div class="bar-track"><div id="barFill" class="bar-fill"></div><div class="bar-marker"></div></div>
@@ -13,7 +13,7 @@
     <div id="state" class="state">Ready</div>
     <div class="actions"><button id="toggleBtn" class="primary">Start</button><button id="resetBtn" class="secondary">Reset</button></div>
     <div class="presets" id="presets">
-      <button data-min="5" class="preset active">5</button><button data-min="30" class="preset">30</button><button data-min="50" class="preset">50</button>
+      <button data-min="10" class="preset active">10</button><button data-min="45" class="preset">45</button><button data-min="60" class="preset">60</button>
     </div>
     <div class="custom-time"><input id="customMinutes" type="number" min="1" max="999" step="1" placeholder="분 입력"><button id="applyCustom" class="secondary" aria-label="시간 적용">▶</button></div>
     <label class="control" for="opacity"><span>투명도</span><input id="opacity" type="range" min="35" max="100" value="92"><output id="opacityValue">92%</output></label>

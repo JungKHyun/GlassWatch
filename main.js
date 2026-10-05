@@ -1,6 +1,9 @@
 const { app, BrowserWindow, ipcMain, screen } = require('electron');
 const path = require('path');
 
+// Let the completion beep play even though it is not triggered by a click.
+app.commandLine.appendSwitch('autoplay-policy', 'no-user-gesture-required');
+
 let win;
 
 function createWindow() {
@@ -44,6 +47,9 @@ ipcMain.on('set-size', (_, value) => {
   if (!win) return;
   const scale = Math.max(0.75, Math.min(1.35, Number(value) / 100));
   win.setSize(Math.round(96 * scale), Math.round(280 * scale));
+  // Scale the page with Chromium zoom so the CSS viewport stays 96x280 and the
+  // rounded frame always fills the window exactly.
+  win.webContents.setZoomFactor(scale);
 });
 ipcMain.on('close-window', () => win?.close());
 ipcMain.on('minimize-window', () => win?.minimize());

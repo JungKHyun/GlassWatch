@@ -1,9 +1,9 @@
 {
-  "name": "jipjunghagi",
+  "name": "pomodoro_cld",
   "version": "1.0.0",
   "description": "A tiny always-on-top focus timer",
   "main": "main.js",
-  "author": "GlassWatch",
+  "author": "Pomodoro_cld",
   "license": "MIT",
   "scripts": {
     "start": "electron .",
@@ -14,12 +14,12 @@
     "electron-builder": "^24.13.3"
   },
   "build": {
-    "appId": "com.glasswatch.timer",
+    "appId": "com.pomodorocld.timer",
     "productName": "집중해!",
     "files": ["main.js", "preload.js", "index.html", "renderer.js", "styles.css"],
     "directories": { "output": "dist-v10" },
     "win": { "target": ["portable"], "icon": "", "signAndEditExecutable": false, "forceCodeSigning": false },
     "portable": { "artifactName": "집중하기-${version}-portable.exe" },
-    "nsis": { "oneClick": true, "perMachine": false, "allowToChangeInstallationDirectory": false, "artifactName": "GlassWatch-${version}-Setup.exe" }
+    "nsis": { "oneClick": true, "perMachine": false, "allowToChangeInstallationDirectory": false, "artifactName": "Pomodoro_cld-${version}-Setup.exe" }
   }
 }

@@ -1,14 +1,18 @@
 :root { color-scheme: dark; font-family: "Segoe UI", sans-serif; }
 * { box-sizing: border-box; }
-body { margin: 0; width: 96px; min-height: 280px; overflow: hidden; background: transparent; user-select: none; }
-.watch { width: 96px; min-height: 280px; padding: 8px 7px 7px; border: 1px solid rgba(180,225,255,.35); border-radius: 16px; background: rgba(12,22,35,.9); color: #eaf6ff; box-shadow: 0 10px 30px rgba(0,0,0,.35), inset 0 1px rgba(255,255,255,.08); -webkit-app-region: drag; transform:scale(var(--ui-scale, 1)); transform-origin:top left; }
+html, body { height: 100%; }
+body { margin: 0; overflow: hidden; background: transparent; user-select: none; }
+/* The frame always fills the window, so its rounded border is never clipped at any size. */
+.watch { position: fixed; inset: 0; display: flex; flex-direction: column; overflow: hidden; padding: 8px 7px 7px; border: 1px solid rgba(180,225,255,.35); border-radius: 16px; background: rgba(12,22,35,.9); color: #eaf6ff; box-shadow: 0 10px 30px rgba(0,0,0,.35), inset 0 1px rgba(255,255,255,.08); -webkit-app-region: drag; }
 button, input { -webkit-app-region: no-drag; }
 .topbar { position:relative; display:flex; justify-content:center; align-items:center; height:18px; }
 .brand { font-size:10px; letter-spacing:.5px; color:#9fe0ff; font-weight:800; text-align:center; }
 .icon-btn { border:0; padding:0; width:13px; height:13px; line-height:11px; color:#a8c1d5; background:transparent; font-size:15px; cursor:pointer; }
 .topbar .icon-btn { position:absolute; right:0; top:2px; }
+.topbar .beep-btn { left:0; right:auto; font-size:10px; color:#9fe0ff; }
+.topbar .beep-btn.off { color:#a8c1d5; opacity:.4; text-decoration:line-through; }
 .icon-btn:hover { color:#fff; }
-.bar-chart { position:relative; width:52px; height:90px; margin:8px auto 4px; display:flex; justify-content:center; -webkit-app-region:no-drag; cursor:pointer; }
+.bar-chart { position:relative; width:52px; flex:1 1 90px; min-height:40px; margin:8px auto 4px; display:flex; justify-content:center; -webkit-app-region:no-drag; cursor:pointer; }
 .bar-track { position:absolute; top:0; bottom:0; width:22px; border:1px solid rgba(177,226,255,.8); border-radius:7px; background:rgba(139,207,240,.15); overflow:hidden; box-shadow:inset 0 0 8px rgba(74,180,230,.16); }
 .bar-fill { position:absolute; left:0; bottom:0; width:100%; height:100%; border-radius:5px; background:linear-gradient(180deg,#9fe0ff 0%,#59b9e8 60%,#2e86c2 100%); box-shadow:0 0 10px rgba(83,194,255,.8); transition:height .12s linear; }
 .bar-fill.active { animation: barPulse 1.2s ease-in-out infinite alternate; }
@@ -27,8 +31,8 @@ button, input { -webkit-app-region: no-drag; }
 .custom-time input { min-width:0; flex:1; height:18px; border:1px solid rgba(159,224,255,.3); border-radius:6px; padding:0 4px; color:#eaf6ff; background:rgba(145,190,220,.1); font-size:8px; }
 .custom-time input::placeholder { color:#8ba6b7; }
 .custom-time button { width:27px; height:18px; border:0; border-radius:6px; font-size:8px; cursor:pointer; }
-.control { display:flex; align-items:center; gap:3px; margin-top:8px; color:#96b2c5; font-size:7px; }
-.control input { width:42px; height:9px; accent-color:#9fe0ff; cursor:pointer; } output { width:21px; text-align:right; font-size:7px; }
+.control { display:flex; align-items:center; gap:3px; margin-top:8px; color:#96b2c5; font-size:7px; white-space:nowrap; }
+.control input { flex:1; min-width:0; height:9px; accent-color:#9fe0ff; cursor:pointer; } output { width:21px; text-align:right; font-size:7px; }
 .hint { text-align:center; margin-top:5px; color:rgba(156,188,207,.58); font-size:6px; }
 @keyframes barPulse { from { filter:brightness(.95); } to { filter:brightness(1.18); } }
 .bar-chart.blue .bar-fill { background:linear-gradient(180deg,#9fe0ff 0%,#59b9e8 60%,#2e86c2 100%); }
